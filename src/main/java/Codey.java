@@ -2,6 +2,25 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Codey {
+
+    static String[] list = new String[100];
+    static int size = 0;
+
+    public static void printBorder() {
+        System.out.println("_______________________________________________________");
+    }
+
+    public static void echo(String line) {
+        printBorder();
+        System.out.println(line);
+        printBorder();
+    }
+
+    public static void addToList(String line) {
+        list[size] = line;
+        size++;
+    }
+
     public static void main(String[] args) {
         String logo =
                 "  ____          _           \n" +
@@ -10,10 +29,10 @@ public class Codey {
                         "| |__| (_) | (_| |  __/ |_| |\n" +
                         " \\____\\___/ \\__,_|\\___|\\__, |\n" +
                         "                        |___/ \n";
-        System.out.println("_______________________________________________________");
+        printBorder();
         System.out.println("Hello I'm\n" + logo);
         System.out.println("What can I do for you?");
-        System.out.println("_______________________________________________________");
+        printBorder();
 
         
         Scanner input = new Scanner (System.in);
@@ -22,15 +41,21 @@ public class Codey {
             String line = input.nextLine();
 
             if (line.equalsIgnoreCase("bye")) {
-                System.out.println("_______________________________________________________");
+                printBorder();
                 System.out.println("Bye! See you again");
-                System.out.println("_______________________________________________________");
+                printBorder();
                 break;
             }
+            else if (line.equalsIgnoreCase("list")) {
+                printBorder();
+                for (int i = 0; i < size; i ++) {
+                    System.out.println(i+1 + ": " + list[i]);
+                }
+                printBorder();
+            }
             else {
-                System.out.println("_______________________________________________________");
-                System.out.println(line);
-                System.out.println("_______________________________________________________");
+                addToList(line);
+                echo(line);
             }
         }
     }
