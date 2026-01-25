@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Codey {
 
-    static String[] list = new String[100];
+    static Task[] list = new Task[100];
     static int size = 0;
 
     public static void printBorder() {
@@ -16,9 +16,14 @@ public class Codey {
         printBorder();
     }
 
-    public static void addToList(String line) {
-        list[size] = line;
+    public static void addToList(String description) {
+        Task task = new Task(description);
+        list[size] = task;
         size++;
+
+        printBorder();
+        System.out.println("I have added this task: ");
+        System.out.println(task);
     }
 
     public static void main(String[] args) {
@@ -34,8 +39,8 @@ public class Codey {
         System.out.println("What can I do for you?");
         printBorder();
 
-        
-        Scanner input = new Scanner (System.in);
+
+        Scanner input = new Scanner(System.in);
 
         while (true) {
             String line = input.nextLine();
@@ -45,16 +50,28 @@ public class Codey {
                 System.out.println("Bye! See you again");
                 printBorder();
                 break;
-            }
-            else if (line.equalsIgnoreCase("list")) {
+            } else if (line.startsWith("add ")) {
+                addToList(line.substring(4));
+            } else if (line.startsWith("show list")) {
                 printBorder();
-                for (int i = 0; i < size; i ++) {
-                    System.out.println(i+1 + ": " + list[i]);
+                System.out.println("Here are the tasks in your list: ");
+                for (int i = 0; i < size; i++) {
+                    System.out.println(i + 1 + ". " + list[i]);
                 }
                 printBorder();
-            }
-            else {
-                addToList(line);
+            } else if (line.startsWith("mark ")) {
+                int taskNumber = Integer.parseInt(line.substring(5)) - 1;
+                list[taskNumber].markDone();
+                printBorder();
+                System.out.println("Nice! I have marked this task as done: ");
+                System.out.println(" " + list[taskNumber]);
+            } else if (line.startsWith("unmark ")) {
+                int taskNumber = Integer.parseInt(line.substring(7)) - 1;
+                list[taskNumber].unmark();
+                printBorder();
+                System.out.println("I have unmarked this task : ");
+                System.out.println(" " + list[taskNumber]);
+            } else {
                 echo(line);
             }
         }
