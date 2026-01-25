@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
 public class Codey {
     public static void main(String[] args) {
         String logo =
@@ -7,9 +10,27 @@ public class Codey {
                         "| |__| (_) | (_| |  __/ |_| |\n" +
                         " \\____\\___/ \\__,_|\\___|\\__, |\n" +
                         "                        |___/ \n";
-        System.out.println("Hello from\n" + logo);
+        System.out.println("_______________________________________________________");
+        System.out.println("Hello I'm\n" + logo);
         System.out.println("What can I do for you?");
+        System.out.println("_______________________________________________________");
 
-        System.out.println("Bye! Hope to see you again soon!");
+        Scanner input = new Scanner (System.in);
+
+        while (true) {
+            String line = input.nextLine();
+
+            if (line.equalsIgnoreCase("bye")) {
+                System.out.println("_______________________________________________________");
+                System.out.println("Bye! See you again");
+                System.out.println("_______________________________________________________");
+                break;
+            }
+            else {
+                System.out.println("_______________________________________________________");
+                System.out.println(line);
+                System.out.println("_______________________________________________________");
+            }
+        }
     }
 }
