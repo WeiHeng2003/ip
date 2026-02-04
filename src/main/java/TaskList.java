@@ -7,19 +7,35 @@ public class TaskList {
         this.tasks = new ArrayList<Task>();
     }
 
-    public void addTask(String description) {
-        if (description != null && !description.isEmpty()) {
-            tasks.add(new Task(description));
+    public void addTask(Task task) {
+        if (task != null) {
+            tasks.add(task);
         } else {
             throw new IllegalArgumentException("Invalid description!");
         }
     }
 
     public void removeTask(int index) {
-        if (index >= 0 && index <= tasks.size()) {
+        if (index >= 0 && index < tasks.size()) {
             tasks.remove(index);
         } else {
-            throw new IndexOutOfBoundsException("Task Number " + index + 1 + "does not exist!");
+            throw new IndexOutOfBoundsException("Task Number " + (index + 1) + " does not exist!");
+        }
+    }
+
+    public void markTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.get(index).markDone();
+        } else {
+            throw new IndexOutOfBoundsException("Task " + (index + 1) + " do not exist");
+        }
+    }
+
+    public void unmarkTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.get(index).unmarkDone();
+        } else {
+            throw new IndexOutOfBoundsException("Task " + (index + 1) + " do not exist");
         }
     }
 

@@ -42,24 +42,29 @@ public class Ui {
     }
 
     public void printAdded(boolean isAdded, TaskList tasks) {
+        printBorder();
         if (isAdded) {
             System.out.println("I have added a new task!");
             printList(tasks);
         } else {
             System.out.println("I cannot insert an empty task!");
         }
+        printBorder();
     }
 
     public void printRemoved(boolean isRemoved, TaskList tasks) {
+        printBorder();
         if (isRemoved) {
             System.out.println("I have removed the task!");
             printList(tasks);
         } else {
             System.out.println("Invalid index!");
         }
+        printBorder();
     }
 
     public void printList(TaskList tasks) {
+        printBorder();
         if (tasks.getSize() == 0) {
             System.out.println("List is empty!");
         } else {
@@ -68,5 +73,19 @@ public class Ui {
                 System.out.println((i+1) + ". " + tasks.getTask(i));
             }
         }
+        printBorder();
     }
+
+    public void printMark(TaskList taskList) {
+        printBorder();
+        System.out.println("I have marked the task as done!");
+        printList(taskList);
+    }
+
+    public void printUnmark(TaskList taskList) {
+        printBorder();
+        System.out.println("I have unmarked the task as done!");
+        printList(taskList);
+    }
+
 }
