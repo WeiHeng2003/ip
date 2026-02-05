@@ -27,7 +27,7 @@ public class TaskList {
         if (index >= 0 && index < tasks.size()) {
             tasks.get(index).markDone();
         } else {
-            throw new IndexOutOfBoundsException("Task " + (index + 1) + " do not exist");
+            throw new IndexOutOfBoundsException("Task " + (index + 1) + " does not exist");
         }
     }
 
@@ -35,7 +35,7 @@ public class TaskList {
         if (index >= 0 && index < tasks.size()) {
             tasks.get(index).unmarkDone();
         } else {
-            throw new IndexOutOfBoundsException("Task " + (index + 1) + " do not exist");
+            throw new IndexOutOfBoundsException("Task " + (index + 1) + " does not exist");
         }
     }
 

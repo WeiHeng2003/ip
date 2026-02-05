@@ -1,7 +1,3 @@
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.ArrayList;
-
 public class Codey {
     private static final TaskList taskList = new TaskList();
     private static final Ui ui = new Ui();
@@ -56,15 +52,27 @@ public class Codey {
                 break;
 
             case "mark":
-                int markIndex = Integer.parseInt(words[1]) - 1;
-                taskList.markTask(markIndex);
-                ui.printMark(taskList);
+                try {
+                    int markIndex = Integer.parseInt(words[1]) - 1;
+                    taskList.markTask(markIndex);
+                    ui.printMark(taskList);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input! Please input a task number to mark!");
+                } catch (IndexOutOfBoundsException e) {
+                    ui.echo(e.getMessage());
+                }
                 break;
 
             case "unmark":
-                int unmarkIndex = Integer.parseInt(words[1]) - 1;
-                taskList.markTask(unmarkIndex);
-                ui.printUnmark(taskList);
+                try {
+                    int unmarkIndex = Integer.parseInt(words[1]) - 1;
+                    taskList.unmarkTask(unmarkIndex);
+                    ui.printUnmark(taskList);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input! Please input a task number to unmark!");
+                } catch (IndexOutOfBoundsException e) {
+                    ui.echo(e.getMessage());
+                }
                 break;
 
             default:
