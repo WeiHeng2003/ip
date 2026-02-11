@@ -41,25 +41,17 @@ public class Ui {
         return scanner.nextLine().trim();
     }
 
-    public void printAdded(boolean isAdded, TaskList tasks) {
+    public void printAdded(TaskList tasks) {
         printBorder();
-        if (isAdded) {
-            System.out.println("I have added a new task!");
-            printList(tasks);
-        } else {
-            System.out.println("I cannot insert an empty task!");
-        }
+        System.out.println("I have added a new task!");
+        printList(tasks);
         printBorder();
     }
 
-    public void printRemoved(boolean isRemoved, TaskList tasks) {
+    public void printRemoved(TaskList tasks) {
         printBorder();
-        if (isRemoved) {
-            System.out.println("I have removed the task!");
-            printList(tasks);
-        } else {
-            System.out.println("Invalid index!");
-        }
+        System.out.println("I have removed the task!");
+        printList(tasks);
         printBorder();
     }
 
@@ -70,7 +62,7 @@ public class Ui {
         } else {
             System.out.println("Here is your Task List!");
             for (int i = 0; i < tasks.getSize(); i++) {
-                System.out.println((i+1) + ". " + tasks.getTask(i));
+                System.out.println((i + 1) + ". " + tasks.getTask(i));
             }
         }
         printBorder();

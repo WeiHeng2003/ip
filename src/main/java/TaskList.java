@@ -7,36 +7,41 @@ public class TaskList {
         this.tasks = new ArrayList<Task>();
     }
 
-    public void addTask(Task task) {
-        if (task != null) {
-            tasks.add(task);
-        } else {
-            throw new IllegalArgumentException("Invalid description!");
+    public void addTask(Task task) throws CodeyException {
+        if (task == null) {
+            throw new CodeyException("Task does not exist!");
         }
+        tasks.add(task);
     }
 
-    public void removeTask(int index) {
-        if (index >= 0 && index < tasks.size()) {
-            tasks.remove(index);
-        } else {
-            throw new IndexOutOfBoundsException("Task Number " + (index + 1) + " does not exist!");
+    public void removeTask(int index) throws CodeyException {
+        if (index < 0 ) {
+            throw new CodeyException("Index cannot be zero or negative!");
         }
+        if (index >= tasks.size()) {
+            throw new CodeyException("Index cannot be greater than list size!");
+        }
+        tasks.remove(index);
     }
 
-    public void markTask(int index) {
-        if (index >= 0 && index < tasks.size()) {
-            tasks.get(index).markDone();
-        } else {
-            throw new IndexOutOfBoundsException("Task " + (index + 1) + " does not exist");
+    public void markTask(int index) throws CodeyException {
+        if (index < 0 ) {
+            throw new CodeyException("Index cannot be zero or negative!");
         }
+        if (index >= tasks.size()) {
+            throw new CodeyException("Index cannot be greater than list size!");
+        }
+        tasks.get(index).markDone();
     }
 
-    public void unmarkTask(int index) {
-        if (index >= 0 && index < tasks.size()) {
-            tasks.get(index).unmarkDone();
-        } else {
-            throw new IndexOutOfBoundsException("Task " + (index + 1) + " does not exist");
+    public void unmarkTask(int index) throws CodeyException {
+        if (index < 0 ) {
+            throw new CodeyException("Index cannot be zero or negative!");
         }
+        if (index >= tasks.size()) {
+            throw new CodeyException("Index cannot be greater than list size!");
+        }
+        tasks.get(index).unmarkDone();
     }
 
     public Task getTask(int index) {
