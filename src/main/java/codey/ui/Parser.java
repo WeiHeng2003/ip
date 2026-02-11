@@ -1,5 +1,13 @@
+package codey.ui;
+
+import codey.task.Deadline;
+import codey.task.Event;
+import codey.task.Todo;
+import codey.task.TaskList;
+import codey.exception.CodeyException;
+
 public class Parser {
-    public static void parseAndExecute(String input, TaskList taskList, Ui ui) throws CodeyException{
+    public static void parseAndExecute(String input, TaskList taskList, Ui ui) throws CodeyException {
         String[] words = input.split(" ", 2);
         String command = words[0].toLowerCase();
 

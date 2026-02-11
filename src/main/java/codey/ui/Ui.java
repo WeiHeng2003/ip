@@ -1,5 +1,7 @@
+package codey.ui;
+
 import java.util.Scanner;
-import java.util.ArrayList;
+import codey.task.TaskList;
 
 public class Ui {
     private Scanner scanner;

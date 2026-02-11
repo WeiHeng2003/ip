@@ -1,4 +1,7 @@
+package codey.task;
+
 import java.util.ArrayList;
+import codey.exception.CodeyException;
 
 public class TaskList {
     private final ArrayList<Task> tasks;
