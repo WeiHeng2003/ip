@@ -68,7 +68,7 @@ public class Parser {
             break;
 
         default:
-            ui.echo(input);
+            ui.printUnknownCommand();
         }
     }
 }

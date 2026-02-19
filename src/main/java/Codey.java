@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Codey {
-    public static final String FILE_PATH = "data/Codey.txt";
+    public static final String FILE_PATH = "C:\\Users\\tanwe\\ip\\src\\data\\codey.txt";
     private static final TaskList taskList = new TaskList();
     private static final Ui ui = new Ui();
     private static final Storage storage = new Storage(FILE_PATH);

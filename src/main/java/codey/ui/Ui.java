@@ -81,4 +81,10 @@ public class Ui {
         System.out.println("I have unmarked the task as done!");
         printList(taskList);
     }
+
+    public void printUnknownCommand() {
+        printBorder();
+        System.out.println("Unknown Command!");
+        printBorder();
+    }
 }
