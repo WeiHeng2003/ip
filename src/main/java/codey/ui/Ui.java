@@ -50,11 +50,11 @@ public class Ui {
         printBorder();
     }
 
-    public void printRemoved(TaskList tasks) {
+    public void printRemoved(TaskList tasks, int index) {
         printBorder();
-        System.out.println("I have removed the task!");
+        System.out.println("I have removed task " + (index + 1));
+        System.out.println("You have " + tasks.getSize() + " task(s) left");
         printList(tasks);
-        printBorder();
     }
 
     public void printList(TaskList tasks) {
