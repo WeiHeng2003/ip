@@ -48,7 +48,7 @@ public class Parser {
         case "remove":
             int index = Integer.parseInt((input.substring(7).trim())) - 1;
             taskList.removeTask(index);
-            ui.printList(taskList);
+            ui.printRemoved(taskList, index);
             break;
 
         case "list":
