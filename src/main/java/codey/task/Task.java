@@ -28,4 +28,8 @@ public class Task {
     public String toSaveString() {
         return (isDone ? "1" : "0") + " | " + description;
     }
+
+    public boolean isDone() {
+        return isDone;
+    }
 }

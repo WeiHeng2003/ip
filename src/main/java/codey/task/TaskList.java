@@ -27,24 +27,27 @@ public class TaskList {
         tasks.remove(index);
     }
 
+    private void validateTask(int index) throws CodeyException {
+        if (index < 0 || index >= tasks.size()) {
+            throw new CodeyException("Invalid Index!");
+        }
+    }
     public void markTask(int index) throws CodeyException {
-        if (index < 0 ) {
-            throw new CodeyException("Index cannot be zero or negative!");
+        validateTask(index);
+        Task task = tasks.get(index);
+        if (task.isDone()) {
+            throw new CodeyException("Task " + (index + 1) + " is already marked!");
         }
-        if (index >= tasks.size()) {
-            throw new CodeyException("Index cannot be greater than list size!");
-        }
-        tasks.get(index).markDone();
+        task.markDone();
     }
 
     public void unmarkTask(int index) throws CodeyException {
-        if (index < 0 ) {
-            throw new CodeyException("Index cannot be zero or negative!");
+        validateTask(index);
+        Task task = tasks.get(index);
+        if (!task.isDone()) {
+            throw new CodeyException("Task " + (index + 1) + " is already unmarked!");
         }
-        if (index >= tasks.size()) {
-            throw new CodeyException("Index cannot be greater than list size!");
-        }
-        tasks.get(index).unmarkDone();
+        task.unmarkDone();
     }
 
     public Task getTask(int index) {

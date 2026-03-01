@@ -5,70 +5,75 @@ import codey.task.Event;
 import codey.task.Todo;
 import codey.task.TaskList;
 import codey.exception.CodeyException;
+import codey.command.UnmarkCommand;
+import codey.command.MarkCommand;
+import codey.command.ListCommand;
+import codey.command.AddTodoCommand;
+import codey.command.AddDeadlineCommand;
+import codey.command.AddEventCommand;
+import codey.command.DeleteCommand;
+import codey.command.ExitCommand;
+import codey.command.Command;
 
 public class Parser {
-    public static void parseAndExecute(String input, TaskList taskList, Ui ui) throws CodeyException {
+    public static Command parse(String input) throws CodeyException {
         String[] words = input.split(" ", 2);
         String command = words[0].toLowerCase();
 
         switch (command) {
-        case "todo":
-            if (words.length < 2 || words[1].trim().isEmpty()) {
-                throw new CodeyException("Please add a description for the todo!");
-            }
-            taskList.addTask(new Todo(words[1]));
-            ui.printList(taskList);
-            break;
-
-        case "deadline":
-            if (words.length < 2) {
-                throw new CodeyException("Please add a description for the todo!");
-            }
-            if (!words[1].contains("/by")) {
-                throw new CodeyException("Please follow the format! <description> /by <deadline>");
-            }
-            String[] Dparts = words[1].split(" /by ", 2);
-            taskList.addTask(new Deadline(Dparts[0], Dparts[1]));
-            ui.printList(taskList);
-            break;
-
-        case "event":
-            if (words.length < 2) {
-                throw new CodeyException("Please add a description for the event!");
-            }
-            if (!words[1].trim().contains("/from") || !words[1].trim().contains("/to")) {
-                throw new CodeyException("Please follow the format! <description> /from <start> /to <end>");
-            }
-            String[] eParts = words[1].split(" /from ", 2);
-            String[] from_to = eParts[1].split(" /to ", 2);
-            taskList.addTask(new Event(eParts[0], from_to[0], from_to[1]));
-            ui.printList(taskList);
-            break;
-
-        case "remove":
-            int index = Integer.parseInt((input.substring(7).trim())) - 1;
-            taskList.removeTask(index);
-            ui.printRemoved(taskList, index);
-            break;
-
+        case "bye":
+            return new ExitCommand();
         case "list":
-            ui.printList(taskList);
-            break;
-
+            return new ListCommand();
         case "mark":
-            int markIndex = Integer.parseInt(words[1]) - 1;
-            taskList.markTask(markIndex);
-            ui.printMark(taskList);
-            break;
-
+            return new MarkCommand(parseIndex(words));
         case "unmark":
-            int unmarkIndex = Integer.parseInt(words[1]) - 1;
-            taskList.unmarkTask(unmarkIndex);
-            ui.printUnmark(taskList);
-            break;
-
+            return new UnmarkCommand(parseIndex(words));
+        case "delete":
+            return new DeleteCommand(parseIndex(words));
+        case "todo":
+            return parseTodo(words);
+        case "deadline":
+            return parseDeadline(words);
+        case "event":
+            return parseEvent(words);
         default:
-            ui.printUnknownCommand();
+            throw new CodeyException("Sorry, I don't know that command!");
         }
     }
+
+    private static int parseIndex(String[] words) throws CodeyException {
+        if (words.length < 2) {
+            throw new CodeyException("Task number is missing!");
+        }
+        try {
+            return Integer.parseInt(words[1]) - 1;
+        } catch (NumberFormatException e) {
+            throw new CodeyException("Number is not valid!");
+        }
+    }
+
+    private static Command parseTodo(String[] words) throws CodeyException {
+        if (words.length < 2 || words[1].isBlank()) {
+            throw new CodeyException("Todo description cannot be empty");
+        }
+        return new AddTodoCommand(words[1]);
+    }
+
+    private static Command parseDeadline(String[] words) throws CodeyException {
+        if (words.length < 2 || !words[1].contains("/by")) {
+            throw new CodeyException("Invalid Format! Try deadline [description] /by [when]");
+        }
+        String[] parts = words[1].split(" /by ", 2);
+        return new AddDeadlineCommand(parts[0], parts[1]);
+    }
+
+    private static Command parseEvent(String[] words) throws CodeyException {
+        if (words.length < 2 || !words[1].contains("/from") || !words[1].contains("/to")) {
+            throw new CodeyException("Invalid Format! Try event [description] /from [when] /to [when]");
+        }
+        String[] parts = words[1].split(" /from | /to ", 3);
+        return new AddEventCommand(parts[0], parts[1], parts[2]);
+    }
+
 }

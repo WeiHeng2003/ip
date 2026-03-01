@@ -1,19 +1,22 @@
+import codey.command.Command;
 import codey.exception.CodeyException;
 import codey.task.TaskList;
 import codey.ui.Parser;
 import codey.ui.Ui;
 import codey.storage.Storage;
-
 import java.io.FileNotFoundException;
-import java.io.IOException;
+
 
 public class Codey {
     public static final String FILE_PATH = "C:\\Users\\tanwe\\ip\\src\\data\\codey.txt";
-    private static final TaskList taskList = new TaskList();
-    private static final Ui ui = new Ui();
-    private static final Storage storage = new Storage(FILE_PATH);
+    private final TaskList taskList;
+    private final Ui ui;
+    private final Storage storage;
 
-    public static void main(String[] args) {
+    public Codey(String filePath) {
+        ui = new Ui();
+        storage = new Storage(filePath);
+        taskList = new TaskList();
         try {
             storage.load(taskList);
         } catch (FileNotFoundException e) {
@@ -21,27 +24,25 @@ public class Codey {
         } catch (CodeyException | ArrayIndexOutOfBoundsException e) {
             System.out.println("Save file is corrupted!");
         }
+    }
 
+    public void run() {
         ui.printWelcome();
-        boolean isRunning = true;
+        boolean isExit = false;
 
-        while (isRunning) {
+        while (!isExit) {
             try {
-                String input = ui.getCommand();
-                if (input.equalsIgnoreCase("bye")) {
-                    try {
-                        storage.save(taskList);
-                    } catch (IOException e) {
-                        System.out.println("Warning: Could not save the following task(s) " + e.getMessage());
-                    }
-                    ui.printExit();
-                    isRunning = false;
-                } else {
-                    Parser.parseAndExecute(input, taskList, ui);
-                }
+                String input = ui.readCommand();
+                Command c = Parser.parse(input);
+                c.execute(taskList, ui, storage);
+                isExit = c.isExit();
             } catch (CodeyException e) {
                 ui.echo(e.getMessage());
             }
         }
+    }
+
+    public static void main(String[] args) {
+        new Codey(FILE_PATH).run();
     }
 }

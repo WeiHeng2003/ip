@@ -39,19 +39,16 @@ public class Ui {
         printBorder();
     }
 
-    public String getCommand() {
+    public String readCommand() {
         return scanner.nextLine().trim();
     }
 
     public void printAdded(TaskList tasks) {
-        printBorder();
         System.out.println("I have added a new task!");
         printList(tasks);
-        printBorder();
     }
 
     public void printRemoved(TaskList tasks, int index) {
-        printBorder();
         System.out.println("I have removed task " + (index + 1));
         System.out.println("You have " + tasks.getSize() + " task(s) left");
         printList(tasks);
@@ -71,20 +68,12 @@ public class Ui {
     }
 
     public void printMark(TaskList taskList) {
-        printBorder();
         System.out.println("I have marked the task as done!");
         printList(taskList);
     }
 
     public void printUnmark(TaskList taskList) {
-        printBorder();
         System.out.println("I have unmarked the task as done!");
         printList(taskList);
-    }
-
-    public void printUnknownCommand() {
-        printBorder();
-        System.out.println("Unknown Command!");
-        printBorder();
     }
 }
