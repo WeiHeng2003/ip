@@ -27,11 +27,12 @@ public class TaskList {
         tasks.remove(index);
     }
 
-    public ArrayList<Task> findTask(String keyword) throws CodeyException {
-        ArrayList<Task> matchingTasks = new ArrayList<>();
-        for (Task task : tasks) {
-            if (task.getDescription().contains(keyword)) {
-                matchingTasks.add(task);
+    public ArrayList<String> findTask(String keyword) throws CodeyException {
+        ArrayList<String> matchingTasks = new ArrayList<>();
+        for (int i = 0; i < tasks.size(); i++) {
+            Task task = tasks.get(i);
+            if (task.getDescription().toLowerCase().contains(keyword.toLowerCase())) {
+                matchingTasks.add((i+1) + ". " + task.toString());
             }
         }
         return matchingTasks;

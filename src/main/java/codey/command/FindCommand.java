@@ -17,7 +17,7 @@ public class FindCommand extends Command {
 
     @Override
     public void execute (TaskList tasks, Ui ui, Storage storage) throws CodeyException {
-        ArrayList<Task> matchingTasks = tasks.findTask(keyword);
+        ArrayList<String> matchingTasks = tasks.findTask(keyword);
         ui.printFoundTasks(matchingTasks);
     }
 }

@@ -80,14 +80,14 @@ public class Ui {
         printList(taskList);
     }
 
-    public void printFoundTasks(ArrayList<Task> matchingTasks) {
+    public void printFoundTasks(ArrayList<String> matchingTasks) {
         printBorder();
         if (matchingTasks.isEmpty()) {
             System.out.println("No tasks found");
         } else {
             System.out.println("Here are the matching tasks in the list:");
-            for (int i = 0; i < matchingTasks.size(); i++) {
-                System.out.println((i+1) + ". " + matchingTasks.get(i));
+            for (String task : matchingTasks) {
+                System.out.println(task);
             }
         }
         printBorder();
