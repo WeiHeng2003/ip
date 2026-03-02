@@ -5,7 +5,7 @@ import codey.ui.Ui;
 import codey.storage.Storage;
 import java.io.IOException;
 
-public class ExitCommand extends Command{
+public class ExitCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         try {

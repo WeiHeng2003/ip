@@ -1,19 +1,11 @@
 package codey.ui;
 
+import codey.command.*;
 import codey.task.Deadline;
 import codey.task.Event;
 import codey.task.Todo;
 import codey.task.TaskList;
 import codey.exception.CodeyException;
-import codey.command.UnmarkCommand;
-import codey.command.MarkCommand;
-import codey.command.ListCommand;
-import codey.command.AddTodoCommand;
-import codey.command.AddDeadlineCommand;
-import codey.command.AddEventCommand;
-import codey.command.DeleteCommand;
-import codey.command.ExitCommand;
-import codey.command.Command;
 
 public class Parser {
     public static Command parse(String input) throws CodeyException {
@@ -37,9 +29,18 @@ public class Parser {
             return parseDeadline(words);
         case "event":
             return parseEvent(words);
+        case "find":
+            return parseFind(words);
         default:
             throw new CodeyException("Sorry, I don't know that command!");
         }
+    }
+
+    private static Command parseFind(String[] words) throws CodeyException {
+        if (words.length < 2 || words[1].isBlank()) {
+            throw new CodeyException("The keyword is empty");
+        }
+        return new FindCommand(words[1]);
     }
 
     private static int parseIndex(String[] words) throws CodeyException {

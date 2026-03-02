@@ -27,6 +27,16 @@ public class TaskList {
         tasks.remove(index);
     }
 
+    public ArrayList<Task> findTask(String keyword) throws CodeyException {
+        ArrayList<Task> matchingTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getDescription().contains(keyword)) {
+                matchingTasks.add(task);
+            }
+        }
+        return matchingTasks;
+    }
+
     private void validateTask(int index) throws CodeyException {
         if (index < 0 || index >= tasks.size()) {
             throw new CodeyException("Invalid Index!");

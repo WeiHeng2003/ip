@@ -6,7 +6,7 @@ import codey.task.TaskList;
 import codey.ui.Ui;
 import codey.storage.Storage;
 
-public class AddDeadlineCommand extends Command{
+public class AddDeadlineCommand extends Command {
     private final String description;
     private final String by;
 

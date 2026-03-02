@@ -6,7 +6,7 @@ import codey.task.TaskList;
 import codey.ui.Ui;
 import codey.storage.Storage;
 
-public class AddEventCommand extends Command{
+public class AddEventCommand extends Command {
     private final String description;
     private final String from;
     private final String to;

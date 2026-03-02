@@ -1,6 +1,9 @@
 package codey.ui;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import codey.task.Task;
 import codey.task.TaskList;
 
 public class Ui {
@@ -75,5 +78,18 @@ public class Ui {
     public void printUnmark(TaskList taskList) {
         System.out.println("I have unmarked the task as done!");
         printList(taskList);
+    }
+
+    public void printFoundTasks(ArrayList<Task> matchingTasks) {
+        printBorder();
+        if (matchingTasks.isEmpty()) {
+            System.out.println("No tasks found");
+        } else {
+            System.out.println("Here are the matching tasks in the list:");
+            for (int i = 0; i < matchingTasks.size(); i++) {
+                System.out.println((i+1) + ". " + matchingTasks.get(i));
+            }
+        }
+        printBorder();
     }
 }
