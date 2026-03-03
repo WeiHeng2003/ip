@@ -1,12 +1,20 @@
 package codey.ui;
 
-import codey.command.*;
-import codey.task.Deadline;
-import codey.task.Event;
-import codey.task.Todo;
-import codey.task.TaskList;
+import codey.command.Command;
+import codey.command.FindCommand;
+import codey.command.ExitCommand;
+import codey.command.DeleteCommand;
+import codey.command.ListCommand;
+import codey.command.MarkCommand;
+import codey.command.UnmarkCommand;
+import codey.command.AddTodoCommand;
+import codey.command.AddDeadlineCommand;
+import codey.command.AddEventCommand;
 import codey.exception.CodeyException;
 
+/**
+ * Parses user input into commands for Codey
+ */
 public class Parser {
     public static Command parse(String input) throws CodeyException {
         String[] words = input.split(" ", 2);

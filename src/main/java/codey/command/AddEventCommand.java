@@ -6,6 +6,9 @@ import codey.task.TaskList;
 import codey.ui.Ui;
 import codey.storage.Storage;
 
+/**
+ * Represents a command to add a new Event to the TaskList
+ */
 public class AddEventCommand extends Command {
     private final String description;
     private final String from;
@@ -17,6 +20,13 @@ public class AddEventCommand extends Command {
         this.to = to;
     }
 
+    /**
+     * Executes the command by creating a new Event and adding it to the TaskList
+     * @param tasks The TaskList to add the event into
+     * @param ui The user interface to show the messages
+     * @param storage The storage component
+     * @throws CodeyException If adding the event fails
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws CodeyException {
         Event event = new Event(description, from, to);
