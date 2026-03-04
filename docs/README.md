@@ -11,8 +11,11 @@ Quick Start
 
 # Features
 1. Words in UPPER_CASE are the parameters to be entered by the user.
+
    E.g. ```todo DESCRIPTION```
    DESCRIPTION is a parameter which can be used as ```todo read a book```
+
+   
 2. Parameters must be in the specified order.
 
 <h2> Adding Todos:<h2> ```todo```
