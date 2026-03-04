@@ -1,2 +1,1 @@
-E | 0 | Tan Wei Heng attends CS2113 Lecture | Friday 20 Feb 2026 4pm | 6pm
-E | 0 | school | now | later
+D | 0 | Homework | today 2359
