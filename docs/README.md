@@ -11,12 +11,11 @@ Quick Start
 
 # Features
 1. Words in UPPER_CASE are the parameters to be entered by the user.
-
-   E.g. ```todo DESCRIPTION```
-   - DESCRIPTION is a parameter which can be used as ```todo read a book```
+E.g. ```todo DESCRIPTION```
+- DESCRIPTION is a parameter which can be used as ```todo read a book```
 
    
-2. Parameters must be in the specified order.
+3. Parameters must be in the specified order.
 
 ## Adding Todos: ```todo```
 ### Format:<h3> ```todo DESCRIPTION```  
@@ -49,8 +48,8 @@ Here is your Task List!
 _______________________________________________________
 ```
 
-## Adding events:<h2> ```event```
-### Format:<h3> ```event DESCRIPTION /from FROM /to TO```  
+## Adding events: ```event```
+### Format: ```event DESCRIPTION /from FROM /to TO```  
 -```DESCRIPTION```: The details of the event.  
 -```FROM```: The start date or time of the event.  
 -```TO```: The end date or time of the event.
