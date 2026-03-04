@@ -3,7 +3,7 @@ Codey is a program that can be used via a Command Line Interface (CLI) for manag
 
 Quick Start
 1. Ensure that you have Java 17 or above installed on your computer
-2. Download the latest codey.jar from [here] (https://github.com/WeiHeng2003/ip/releases/tag/A-Release)
+2. Download the latest codey.jar from [here](https://github.com/WeiHeng2003/ip/releases/tag/A-Release)
 3. Open a command terminal, navigate to the folder where the jar file is located and run ```java -jar codey.jar```
 4. Codey will greet you with a welcome message
 5. Type the command in the command box and press Enter to execute it, a list of commands can be found below.
@@ -236,6 +236,10 @@ _______________________________________________________
 Bye! See you again
 _______________________________________________________
 ```
+
+## FAQ
+**Q**: How do I transfer data to another computer?
+**A**: Install the app in another computer and overwrite the empty data file it creates with the file that contains the data from your previous computer.
 
 ## Command Summary
 | Command  | Format Examples |
