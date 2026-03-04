@@ -13,16 +13,16 @@ Quick Start
 1. Words in UPPER_CASE are the parameters to be entered by the user.
 
    E.g. ```todo DESCRIPTION```
-   DESCRIPTION is a parameter which can be used as ```todo read a book```
+   - DESCRIPTION is a parameter which can be used as ```todo read a book```
 
    
 2. Parameters must be in the specified order.
 
-<h2> Adding Todos:<h2> ```todo```
-<h3> Format:<h3> ```todo DESCRIPTION```
+## Adding Todos: ```todo```
+### Format:<h3> ```todo DESCRIPTION```  
 - ```DESCRIPTION```: The details of the deadline.
    
-<h3> Example:<h3> ```todo Tidy room```
+### Example: ```todo Tidy room```
 ### Expected Output:  
    
 ```
@@ -33,12 +33,12 @@ Here is your Task List!
 _______________________________________________________
 ```
 
-<h2> Adding deadlines:<h2> ```deadline```
-<h3> Format:<h3> ```deadline DESCRIPTION /by WHEN```
-- ```DESCRIPTION```: The details of the deadline.
-- ```WHEN```: The date or time the task is due.
+## Adding deadlines: ```deadline```
+### Format: ```deadline DESCRIPTION /by WHEN```  
+-```DESCRIPTION```: The details of the deadline.  
+-```WHEN```: The date or time the task is due.
    
-<h3> Example:<h3> ```deadline Return book /by Sunday```
+### Example: ```deadline Return book /by Sunday```
 ### Expected Output:  
    
 ```
@@ -49,13 +49,13 @@ Here is your Task List!
 _______________________________________________________
 ```
 
-<h2> Adding events:<h2> ```event```
-<h3> Format:<h3> ```event DESCRIPTION /from FROM /to TO```
-- ```DESCRIPTION```: The details of the event.
-- ```FROM```: The start date or time of the event.  
-- ```TO```: The end date or time of the event.
+## Adding events:<h2> ```event```
+### Format:<h3> ```event DESCRIPTION /from FROM /to TO```  
+-```DESCRIPTION```: The details of the event.  
+-```FROM```: The start date or time of the event.  
+-```TO```: The end date or time of the event.
    
-<h3> Example:<h3> ```event Birthday Part /from 2pm /to 5pm```
+### Example: ```event Birthday Part /from 2pm /to 5pm```
 ### Expected Output:  
    
 ```
@@ -66,43 +66,13 @@ Here is your Task List!
 _______________________________________________________
 ```
 
-<h2> Finding tasks:<h2> ```find```
+## Finding tasks: ```find```  
 - The search is case-insensitive. E.g. ```book``` will match ```Book```.
 - Only the description can be searched (date, index or task type cannot).
-<h3> Format:<h3> ```find KEYWORD```
+### Format: ```find KEYWORD```  
 - ```KEYWORD```: The details of the task to be searched.
    
 ### Example:
-### Adding an event:
-```
-event Birthday Part /from 2pm /to 5pm
-```
-
-### Expected Output:  
-```
-I have added a new task!
-_______________________________________________________
-Here is your Task List!
-1. [E][ ] Birthday Part (from: 2pm to: 5pm)
-_______________________________________________________
-```
-
-### Adding a deadline:
-```
-deadline Homework /by today 2359
-```
-
-### Expected Output: 
-```
-I have added a new task!
-_______________________________________________________
-Here is your Task List!
-1. [E][ ] Birthday Part (from: 2pm to: 5pm)
-2. [D][ ] Homework (by: today 2359)
-_______________________________________________________
-```
-
-### Finding birthday:
 ```
 find birthday
 ```
@@ -115,25 +85,11 @@ Here are the matching tasks in the list:
 _______________________________________________________
 ```
 
-<h2> Marking or Unmarking Tasks:<h2> ```mark``` OR ```unmark```
-<h3> Format:<h3> ```mark INDEX``` or ```unmark INDEX```
+## Marking or Unmarking Tasks: ```mark``` OR ```unmark```
+### Format: ```mark INDEX``` or ```unmark INDEX```  
 - ```index```: The index number shown in the displayed task list
 
 ### Example:
-### Adding a deadline:
-```
-deadline Homework /by today 2359
-```
-   
-### Expected Output:  
-```
-I have added a new task!
-_______________________________________________________
-Here is your Task List!
-1. [D][ ] Homework (by: today 2359)
-_______________________________________________________
-```
-
 ### Marking the task: 
 ```
 mark 1
@@ -162,26 +118,11 @@ Here is your Task List!
 _______________________________________________________
 ```
 
-<h2> Deleting Tasks:<h2> ```delete```
-<h3> Format:<h3> ```delete INDEX``` 
+## Deleting Tasks: ```delete```
+### Format: ```delete INDEX```  
 - ```index```: The index number shown in the displayed task list
    
 ### Example:
-### Adding a deadline:
-```
-deadline Homework /by today 2359
-```
-
-### Expected Output:   
-```
-I have added a new task!
-_______________________________________________________
-Here is your Task List!
-1. [D][ ] Homework (by: today 2359)
-_______________________________________________________
-```
-
-### Deleting a task:
 ```
 delete 1
 ```
@@ -195,24 +136,9 @@ List is empty!
 _______________________________________________________
 ```
 
-<h2> Displaying the list:<h2> ```list```
+## Displaying the list: ```list```
 
 ### Example:
-### Adding a deadline:
-```
-deadline Homework /by today 2359
-```
-
-### Expected Output:   
-```
-I have added a new task!
-_______________________________________________________
-Here is your Task List!
-1. [D][ ] Homework (by: today 2359)
-_______________________________________________________
-```
-
-### Displaying the list: 
 ```
 list
 ```
@@ -225,7 +151,7 @@ Here is your Task List!
 _______________________________________________________
 ```
 
-<h2> Closing the program:<h2> ```bye```
+## Closing the program: ```bye```  
 - Exits and closes Codey, your tasks in the list are automatically saved to codey.txt 
 
 ### Example:
