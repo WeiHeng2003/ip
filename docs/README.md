@@ -1,7 +1,7 @@
 # Codey User Guide
 Codey is a program that can be used via a Command Line Interface (CLI) for managing tasks. Codey can help you track your to do, deadlines and events efficiently!
 
-Quick Start
+# Quick Start
 1. Ensure that you have Java 17 or above installed on your computer
 2. Download the latest codey.jar from [here](https://github.com/WeiHeng2003/ip/releases/tag/A-Release)
 3. Open a command terminal, navigate to the folder where the jar file is located and run ```java -jar codey.jar```
@@ -11,15 +11,14 @@ Quick Start
 
 # Features
 1. Words in UPPER_CASE are the parameters to be entered by the user.
-E.g. ```todo DESCRIPTION```
-- DESCRIPTION is a parameter which can be used as ```todo read a book```
+   E.g. ```todo DESCRIPTION```
+   - DESCRIPTION is a parameter which can be used as ```todo read a book```
 
-   
-3. Parameters must be in the specified order.
+2. Parameters must be in the specified order.
 
 ## Adding Todos: ```todo```
-### Format:<h3> ```todo DESCRIPTION```  
-- ```DESCRIPTION```: The details of the deadline.
+### Format: ```todo DESCRIPTION```  
+   - ```DESCRIPTION```: The details of the deadline.
    
 ### Example: ```todo Tidy room```
 ### Expected Output:  
@@ -34,8 +33,8 @@ _______________________________________________________
 
 ## Adding deadlines: ```deadline```
 ### Format: ```deadline DESCRIPTION /by WHEN```  
--```DESCRIPTION```: The details of the deadline.  
--```WHEN```: The date or time the task is due.
+   - ```DESCRIPTION```: The details of the deadline.  
+   - ```WHEN```: The date or time the task is due.
    
 ### Example: ```deadline Return book /by Sunday```
 ### Expected Output:  
@@ -50,9 +49,9 @@ _______________________________________________________
 
 ## Adding events: ```event```
 ### Format: ```event DESCRIPTION /from FROM /to TO```  
--```DESCRIPTION```: The details of the event.  
--```FROM```: The start date or time of the event.  
--```TO```: The end date or time of the event.
+   - ```DESCRIPTION```: The details of the event.  
+   - ```FROM```: The start date or time of the event.  
+   - ```TO```: The end date or time of the event.
    
 ### Example: ```event Birthday Part /from 2pm /to 5pm```
 ### Expected Output:  
@@ -66,10 +65,10 @@ _______________________________________________________
 ```
 
 ## Finding tasks: ```find```  
-- The search is case-insensitive. E.g. ```book``` will match ```Book```.
-- Only the description can be searched (date, index or task type cannot).
+   - The search is case-insensitive. E.g. ```book``` will match ```Book```.
+   - Only the description can be searched (date, index or task type cannot).
 ### Format: ```find KEYWORD```  
-- ```KEYWORD```: The details of the task to be searched.
+   - ```KEYWORD```: The details of the task to be searched.
    
 ### Example:
 ```
@@ -86,7 +85,7 @@ _______________________________________________________
 
 ## Marking or Unmarking Tasks: ```mark``` OR ```unmark```
 ### Format: ```mark INDEX``` or ```unmark INDEX```  
-- ```index```: The index number shown in the displayed task list
+   - ```index```: The index number shown in the displayed task list
 
 ### Example:
 ### Marking the task: 
@@ -119,7 +118,7 @@ _______________________________________________________
 
 ## Deleting Tasks: ```delete```
 ### Format: ```delete INDEX```  
-- ```index```: The index number shown in the displayed task list
+   - ```index```: The index number shown in the displayed task list
    
 ### Example:
 ```
@@ -151,7 +150,7 @@ _______________________________________________________
 ```
 
 ## Closing the program: ```bye```  
-- Exits and closes Codey, your tasks in the list are automatically saved to codey.txt 
+   - Exits and closes Codey, your tasks in the list are automatically saved to codey.txt 
 
 ### Example:
 ```
