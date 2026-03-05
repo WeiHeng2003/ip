@@ -6,9 +6,8 @@ import codey.ui.Ui;
 import codey.storage.Storage;
 import java.io.FileNotFoundException;
 
-
 public class Codey {
-    public static final String FILE_PATH = "C:\\Users\\tanwe\\ip\\src\\data\\codey.txt";
+    public static final String FILE_PATH = "data/codey.txt";
     private final TaskList taskList;
     private final Ui ui;
     private final Storage storage;

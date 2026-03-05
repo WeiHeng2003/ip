@@ -2,8 +2,6 @@ package codey.ui;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import codey.task.Task;
 import codey.task.TaskList;
 
 public class Ui {
@@ -80,6 +78,10 @@ public class Ui {
         printList(taskList);
     }
 
+    /**
+     * Prints the list of tasks in matchingTasks
+     * @param matchingTasks The list of tasks that matches the keyword
+     */
     public void printFoundTasks(ArrayList<String> matchingTasks) {
         printBorder();
         if (matchingTasks.isEmpty()) {

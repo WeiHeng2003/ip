@@ -21,7 +21,13 @@ public class Storage {
     }
 
     public void save(TaskList tasks) throws IOException {
-        FileWriter fw = new FileWriter(filePath);
+        File file = new File (filePath);
+        File parentDir = file.getParentFile();
+        if (parentDir != null && !parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+
+        FileWriter fw = new FileWriter(file);
         for (int i = 0; i < tasks.getSize(); i++) {
             Task task = tasks.getTask(i);
             fw.write(task.toSaveString() + System.lineSeparator());
@@ -32,7 +38,7 @@ public class Storage {
     public void load(TaskList tasks) throws FileNotFoundException, CodeyException {
         File f = new File(filePath);
         if (!f.exists()) {
-            return;
+            throw new FileNotFoundException();
         }
 
         Scanner s = new Scanner(f);

@@ -163,6 +163,9 @@ _______________________________________________________
 Bye! See you again
 _______________________________________________________
 ```
+## Known Issues
+1. The ```deadline``` command accepts dates past the current date.
+2. The ```event``` command accepts the date input for ```FROM``` to be a date later than ```TO```.
 
 ## FAQ
 **Q**: How do I transfer data to another computer?
