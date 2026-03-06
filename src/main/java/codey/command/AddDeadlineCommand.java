@@ -29,6 +29,11 @@ public class AddDeadlineCommand extends Command {
     public void execute(TaskList tasks, Ui ui, Storage storage) throws CodeyException {
         Deadline deadline = new Deadline(description, by);
         tasks.addTask(deadline);
+        try {
+            storage.save(tasks);
+        } catch (java.io.IOException e) {
+            ui.echo("Could not save data to file!");
+        }
         ui.printAdded(tasks);
     }
 }

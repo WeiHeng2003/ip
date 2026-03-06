@@ -73,7 +73,10 @@ public class Parser {
         if (words.length < 2 || !words[1].contains("/by")) {
             throw new CodeyException("Invalid Format! Try deadline [description] /by [when]");
         }
-        String[] parts = words[1].split(" /by ", 2);
+        String[] parts = words[1].split("\\s*/by\\s*", 2);
+        if (parts.length < 2 || parts[0].isBlank() || parts[1].isBlank()) {
+            throw new CodeyException("Description or due date cannot be empty");
+        }
         return new AddDeadlineCommand(parts[0], parts[1]);
     }
 
@@ -81,7 +84,10 @@ public class Parser {
         if (words.length < 2 || !words[1].contains("/from") || !words[1].contains("/to")) {
             throw new CodeyException("Invalid Format! Try event [description] /from [when] /to [when]");
         }
-        String[] parts = words[1].split(" /from | /to ", 3);
+        String[] parts = words[1].split("\\s*/from\\s*|\\s*/to\\s*", 3);
+        if (parts.length < 3 || parts[0].isBlank() || parts[1].isBlank() || parts[2].isBlank()) {
+            throw new CodeyException("Event description or dates cannot be empty");
+        }
         return new AddEventCommand(parts[0], parts[1], parts[2]);
     }
 

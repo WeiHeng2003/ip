@@ -22,6 +22,11 @@ public class UnmarkCommand extends Command {
     @Override
     public void execute (TaskList tasks, Ui ui, Storage storage) throws CodeyException {
         tasks.unmarkTask(index);
+        try {
+            storage.save(tasks);
+        } catch (java.io.IOException e) {
+            ui.echo("Could not save data to file!");
+        }
         ui.printUnmark(tasks);
     }
 }

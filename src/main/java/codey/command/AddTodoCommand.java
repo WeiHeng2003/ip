@@ -27,6 +27,11 @@ public class AddTodoCommand extends Command {
     public void execute(TaskList tasks, Ui ui, Storage storage) throws CodeyException {
         Todo todo = new Todo(description);
         tasks.addTask(todo);
+        try {
+            storage.save(tasks);
+        } catch (java.io.IOException e) {
+            ui.echo("Could not save data to file!");
+        }
         ui.printAdded(tasks);
     }
 }

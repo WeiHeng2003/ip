@@ -28,6 +28,11 @@ public class AddEventCommand extends Command {
     public void execute(TaskList tasks, Ui ui, Storage storage) throws CodeyException {
         Event event = new Event(description, from, to);
         tasks.addTask(event);
+        try {
+            storage.save(tasks);
+        } catch (java.io.IOException e) {
+            ui.echo("Could not save data to file!");
+        }
         ui.printAdded(tasks);
     }
 }
